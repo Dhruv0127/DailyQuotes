@@ -1,0 +1,183 @@
+Activity_add_quote.xml
+"""
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddQuote">
+
+    <LinearLayout
+        android:padding="30dp"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter the whole quote" />
+
+        <EditText
+            android:layout_marginBottom="50dp"
+            android:id="@+id/editTextText"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:maxLength="1000"
+            android:ems="10"
+            android:inputType="textMultiLine"/>
+
+        <TextView
+            android:layout_marginBottom="20dp"
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Enter the author name" />
+
+        <EditText
+            android:layout_marginBottom="50dp"
+            android:id="@+id/editTextText2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"/>
+
+
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Add Quote" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+"""
+
+quote_items.xml 
+"""
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true"
+    app:cardPreventCornerOverlap="true"
+    app:cardBackgroundColor="@color/white"
+    app:cardMaxElevation="6dp">
+
+
+
+      <!--  <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardElevation="10dp"
+            app:cardCornerRadius="20dp"
+            android:paddingBottom="-20dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardMaxElevation="12dp"
+            app:cardPreventCornerOverlap="true"
+            app:cardUseCompatPadding="true"
+            tools:ignore="MissingConstraints"> !-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/quote_card_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:text="@string/app_name"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="0dp"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:textColor="@android:color/black"
+                    />
+
+                <TextView
+                    android:layout_margin="20dp"
+                    android:id="@+id/author_card_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Author"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginBottom="20dp"
+                    android:textSize="20sp"
+                    android:textStyle="italic"
+                    android:gravity="bottom"
+                    android:textColor="@android:color/black"
+                    />
+
+            </LinearLayout>
+
+
+
+</androidx.cardview.widget.CardView>
+"""
+
+activity_main.xml
+"""
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/quote_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:text="All Quotes"
+            android:textSize="60sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/quote_rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:layout_marginBottom="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="1dp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@android:drawable/ic_input_add" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+"""
